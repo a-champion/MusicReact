@@ -1,7 +1,7 @@
 const express = require('express');
-const router = express.router();
+const router = express.Router();
 const mongoose = require('mongoose');
-const Albums = require('./models/album')
+const Albums = require('../models/album')
 
 ////////////////////////////////
 //ROUTES
@@ -12,3 +12,5 @@ router.post('/', (req, res) => {
         res.json(createdAlbum)
     })
 })
+
+module.exports = router;
