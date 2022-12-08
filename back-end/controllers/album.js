@@ -25,4 +25,10 @@ router.put('/:id', (req, res)=> {
     })
 })
 
+router.delete('/:id', (req, res) => {
+    Albums.findByIdAndRemove(req.params.id, (err, deletedAlbum)=> {
+        res.json(deletedAlbum)
+    })
+})
+
 module.exports = router;
