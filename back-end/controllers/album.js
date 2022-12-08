@@ -13,4 +13,10 @@ router.post('/', (req, res) => {
     })
 })
 
+router.get('/', (req, res) => {
+    Albums.find({}, (err, foundAlbums) => {
+        res.json(foundAlbums)
+    })
+})
+
 module.exports = router;
