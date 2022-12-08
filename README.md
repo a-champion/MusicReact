@@ -1,2 +1,2 @@
 # MusicReact
-Contributers: Bailey McDonald
+Contributers: Bailey McDonald, Antonio Champion
