@@ -19,4 +19,10 @@ router.get('/', (req, res) => {
     })
 })
 
+router.put('/:id', (req, res)=> {
+    Albums.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedAlbum) =>{
+        res.json(updatedAlbum)
+    })
+})
+
 module.exports = router;
