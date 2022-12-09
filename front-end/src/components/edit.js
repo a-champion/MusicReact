@@ -10,8 +10,6 @@ const Edit = (props) => {
     const [listened, setListened] = useState()
     const [liked, setLiked] = useState()
 
-    const [albumData, setAlbumData] = useState()
-
     const handleUpdateAlbumTitle = (event) => {
         console.log(event.target.value);
         setUpdatedAlbumTitle(event.target.value)
@@ -41,7 +39,6 @@ const Edit = (props) => {
     }
     const handleUpdateAlbum = (albumData) => {
         console.log(albumData + 'albumdata') ;
-        setAlbumData(albumData)
 
         axios
             .put(`http://localhost:3000/albums/${albumData._id}`,
