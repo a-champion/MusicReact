@@ -8,6 +8,19 @@ import Album from './components/Album'
 const App = () => {
 const  [albums, setAlbums] = useState([])
 
+  const handleDeleteAlbum = (albumData) => {
+    console.log(albumData);
+    axios
+         .delete(`http://localhost:3000/albums/${albumData._id}`)
+         .then(()=> {
+          axios
+            .get('http://localhost:3000/albums')
+            .then((response)=>{
+              setAlbums(response.data);
+            })
+         })
+  }
+
   useEffect(() => {
     axios
       .get('http://localhost:3000/albums')
@@ -24,7 +37,7 @@ const  [albums, setAlbums] = useState([])
       <NewForm albums={albums} setAlbums={setAlbums}/>
 
     
-            <Album albums={albums}/>
+            <Album albums={albums} handleDeleteAlbum={handleDeleteAlbum}/>
          
     </div>
   );

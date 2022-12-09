@@ -1,6 +1,13 @@
 import React from 'react';
+import axios from 'axios'
 
 const Album = (props) => {
+
+// const  [albums, setAlbums] = useState([])
+
+
+  
+  
   return (<>
     {props.albums.map((album, index) => {
         return(
@@ -12,6 +19,7 @@ const Album = (props) => {
                     <p>{(album.listened === true) ? <p>Listened</p> : <p>Want to Listen</p>}</p>
                     <p>{(album.liked === true) ? <p>Liked</p> : <p>Didn't Like</p>}</p>
                     <hr/>
+                    <button onClick={(event)=> {props.handleDeleteAlbum(album)}}>Delete</button>
                 </div>
             </div>
         )
