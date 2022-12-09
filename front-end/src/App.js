@@ -3,9 +3,23 @@ import './App.css';
 import axios from 'axios'
 import {useState, useEffect} from 'react'
 import NewForm from './components/newalbum'
+import Album from './components/Album'
 
 const App = () => {
 const  [albums, setAlbums] = useState([])
+
+  const handleDeleteAlbum = (albumData) => {
+    console.log(albumData);
+    axios
+         .delete(`http://localhost:3000/albums/${albumData._id}`)
+         .then(()=> {
+          axios
+            .get('http://localhost:3000/albums')
+            .then((response)=>{
+              setAlbums(response.data);
+            })
+         })
+  }
 
   useEffect(() => {
     axios
@@ -18,8 +32,18 @@ const  [albums, setAlbums] = useState([])
   return (
     <div className="App">
       <h1>Hello MusicReact</h1>
-     
-      <NewForm a/>
+      
+      {/* <input type="text" onChange={handleAlbumSearch}/>  */}
+      <NewForm albums={albums} setAlbums={setAlbums}/>
+
+    {
+      albums.map((album) => {
+        return(
+          <Album album={album} handleDeleteAlbum={handleDeleteAlbum} setAlbums={setAlbums}/>
+        )
+      })
+    }
+         
     </div>
   );
 }
