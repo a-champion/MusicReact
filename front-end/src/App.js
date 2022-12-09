@@ -3,6 +3,7 @@ import './App.css';
 import axios from 'axios'
 import {useState, useEffect} from 'react'
 import NewForm from './components/newalbum'
+import Album from './components/Album'
 
 const App = () => {
 const  [albums, setAlbums] = useState([])
@@ -18,8 +19,13 @@ const  [albums, setAlbums] = useState([])
   return (
     <div className="App">
       <h1>Hello MusicReact</h1>
-     
-      <NewForm a/>
+      
+      {/* <input type="text" onChange={handleAlbumSearch}/>  */}
+      <NewForm albums={albums} setAlbums={setAlbums}/>
+
+    
+            <Album albums={albums}/>
+         
     </div>
   );
 }

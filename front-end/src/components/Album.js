@@ -6,8 +6,12 @@ const Album = (props) => {
         return(
             <div className="albumCard" key={album._id}>
                 <div className="album">
+                    <img src={album.cover}/>
                     <h3>{album.title}</h3>
-                    {/* <img src={album.cover}/> */}
+                    <p>{album.artist}</p>
+                    <p>{(album.listened === true) ? <p>Listened</p> : <p>Want to Listen</p>}</p>
+                    <p>{(album.liked === true) ? <p>Liked</p> : <p>Didn't Like</p>}</p>
+                    <hr/>
                 </div>
             </div>
         )
