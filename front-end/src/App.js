@@ -36,8 +36,13 @@ const  [albums, setAlbums] = useState([])
       {/* <input type="text" onChange={handleAlbumSearch}/>  */}
       <NewForm albums={albums} setAlbums={setAlbums}/>
 
-    
-            <Album albums={albums} handleDeleteAlbum={handleDeleteAlbum}/>
+    {
+      albums.map((album) => {
+        return(
+          <Album album={album} handleDeleteAlbum={handleDeleteAlbum} setAlbums={setAlbums}/>
+        )
+      })
+    }
          
     </div>
   );
