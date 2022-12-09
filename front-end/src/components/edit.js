@@ -71,7 +71,7 @@ const Edit = (props) => {
                 <input type="text" placeholder={props.album.cover} onChange={handleUpdateAlbumCover}/><br/>
                 <input type="checkbox" onChange={handleListened}/> Listened?<br/>
                 <input type="checkbox" onChange={handleLiked}/> Liked?<br/>
-                <button type="submit">Submit Album</button>
+                <button type="submit">Edit Album</button>
             </form>
             
         </div>
